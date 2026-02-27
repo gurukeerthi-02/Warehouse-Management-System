@@ -7,6 +7,7 @@ A full-stack inventory management system for warehouse operations.
 - Frontend: Angular with TypeScript
 - Backend: Java (Spring Boot)
 - API: REST
+- Database: H2 in-memory 
 
 ## Features
 
