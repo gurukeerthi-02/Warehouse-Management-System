@@ -2,7 +2,10 @@ package com.example.warehouseinventorymanagementbackend.controller;
 
 import com.example.warehouseinventorymanagementbackend.entity.ProductEntity;
 import com.example.warehouseinventorymanagementbackend.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,11 +17,11 @@ public class ProductController {
   @Autowired
   private ProductService productService;
 
-  @PostMapping("/products")
-  public ProductEntity saveProduct(@RequestBody ProductEntity productEntity){
-    return productService.saveProduct(productEntity);
-
-  }
+    @PostMapping("/createProduct")
+    public ResponseEntity<ProductEntity> saveProduct(@Valid @RequestBody ProductEntity productEntity) {
+        ProductEntity savedProduct = productService.saveProduct(productEntity);
+        return new ResponseEntity<>(savedProduct, HttpStatus.CREATED);
+    }
 
   @GetMapping("/greet")
   public String greet(){
