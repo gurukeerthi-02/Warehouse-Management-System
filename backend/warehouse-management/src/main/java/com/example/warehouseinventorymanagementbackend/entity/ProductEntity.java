@@ -30,5 +30,5 @@ public class ProductEntity {
 
   @ManyToOne()
   @JoinColumn(name = "supplier_id")
-  SupplierEntity supplier_id;
+  SupplierEntity supplierId;
 }
